@@ -9,6 +9,9 @@
 
 #include <GLFW/glfw3.h>
 
+const int width = 800;
+const int height = 600;
+
 
 int main() {
 
@@ -19,6 +22,21 @@ int main() {
 	std::cout << glm::to_string(V) << std::endl;
 
 	glfwInit();
+
+	// referencia para a janela
+	GLFWwindow* window = glfwCreateWindow(width, height, "BlueMarble", nullptr, nullptr);
+
+	// enquanto a janela não for fechada
+	while (!glfwWindowShouldClose(window)) {
+		// processar todos os eventos da fila de eventos do GLFW (teclado, mouse, gamepad)
+		glfwPollEvents();
+
+		// envia o conteúdo do framebuffer da janela para ser desenhado na tela
+		glfwSwapBuffers(window);
+	}
+
+
+	glfwTerminate(); // encerra a janela
 
 	glewInit();
 
