@@ -26,8 +26,26 @@ int main() {
 	// referencia para a janela
 	GLFWwindow* window = glfwCreateWindow(width, height, "BlueMarble", nullptr, nullptr);
 
+	glfwMakeContextCurrent(window); // torna a janela criada como o contexto corrente
+	glewInit();// inicializa a glew
+
+	GLint GLMajorVersion;
+	GLint GLMinorVersion;
+	glGetIntegerv(GL_MAJOR_VERSION, &GLMajorVersion);
+	glGetIntegerv(GL_MINOR_VERSION, &GLMinorVersion);
+
+	std::cout << "OpenGL Version: " << GLGetString() << std::endl;
+
+	std::cout << "OpenGL Vendor: " << GLMajorVersion << "." << GLMinorVersion << std::endl;
+
+	glClearColor(1.0f, 0.0f, 0.0f, 1.0f);// define o estado com a cor vermelha (novo estado)
+
 	// enquanto a janela não for fechada
 	while (!glfwWindowShouldClose(window)) {
+
+		// glClear limpa o frame buffer
+		// GL_COLOR_BUFFER_BIT informa para limpar o buffer de cor para colorir com a cor corrente
+		glClear(GL_COLOR_BUFFER_BIT);
 		// processar todos os eventos da fila de eventos do GLFW (teclado, mouse, gamepad)
 		glfwPollEvents();
 
