@@ -34,7 +34,7 @@ int main() {
 	glGetIntegerv(GL_MAJOR_VERSION, &GLMajorVersion);
 	glGetIntegerv(GL_MINOR_VERSION, &GLMinorVersion);
 
-	std::cout << "OpenGL Version: " << GLGetString() << std::endl;
+	// std::cout << "OpenGL Version: " << GLGetString() << std::endl;
 
 	std::cout << "OpenGL Vendor: " << GLMajorVersion << "." << GLMinorVersion << std::endl;
 
